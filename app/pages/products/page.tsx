@@ -27,8 +27,16 @@ useEffect(() => {
     <div>
     <h1>Products List</h1>
     {products.length > 0 ? (
-      products.map((item: any, index: number) => (
-        <h1 key={index}>Name : {item.title}</h1>
+      products.map((product: any) => (
+        <div className="card" key={product.id}>
+          <img src={product.images[0]} alt={product.title} />
+          <h2>{product.title}</h2>
+          <p>Price: ${product.price.toFixed(2)}</p>
+          <div className='card_buttons'>
+          <button>Buy</button>
+          <button>description</button>
+          </div>
+        </div>
       ))
     ) : (
       <p>No products found.</p>
