@@ -37,6 +37,7 @@ useEffect(() => {
           <button>description</button>
           </div>
         </div>
+        
       ))
     ) : (
       <p>No products found.</p>
