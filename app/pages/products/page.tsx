@@ -31,7 +31,7 @@ useEffect(() => {
           <img src={product.thumbnail} alt={product.title} />
           <h3>{product.title}</h3>
           <p>{product.description}</p>
-          <h6>${product.price.toFixed(2)}</h6>
+          <h6>${product.price.toFixed(0)}</h6>
           <ul>
             <li>
              

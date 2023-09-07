@@ -74,12 +74,12 @@ export default function Home() {
                   </Link>
                 </li>
                 <li className="text-white">
-                  <Link href="/blogs">
-                   Projects
+                  <Link href="/pages/add-products">
+                   Add Products
                   </Link>
                 </li>
                 <li className="text-white">
-                  <Link href="pages/products">
+                  <Link href="/pages/products">
                    Products
                   </Link>
                 </li>
@@ -93,11 +93,7 @@ export default function Home() {
           </div>
         </div>
       </nav>
-      <div className="flex justify-center items-center mt-8">
-        <h1 className="text-2xl font-bold text-purple-500">
-          Create Responsive Navbar Menu in Next js with Tailwind CSS
-        </h1>
-      </div>
+
     </div>
   );
 }
