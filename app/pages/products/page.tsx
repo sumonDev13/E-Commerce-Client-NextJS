@@ -24,18 +24,21 @@ useEffect(() => {
 }, []);
 
   return (
-    <div>
-    <h1>Products List</h1>
+    <div className='gallery'>
     {products.length > 0 ? (
       products.map((product: any) => (
-        <div className="card" key={product.id}>
-          <img src={product.images[0]} alt={product.title} />
-          <h2>{product.title}</h2>
-          <p>Price: ${product.price.toFixed(2)}</p>
-          <div className='card_buttons'>
-          <button>Buy</button>
-          <button>description</button>
-          </div>
+        <div className="content" key={product.id}>
+          <img src={product.thumbnail} alt={product.title} />
+          <h3>{product.title}</h3>
+          <p>{product.description}</p>
+          <h6>${product.price.toFixed(2)}</h6>
+          <ul>
+            <li>
+             
+               {product.rating}
+            </li>
+          </ul>
+         <button className='buy'>Buy Now</button>
         </div>
         
       ))
