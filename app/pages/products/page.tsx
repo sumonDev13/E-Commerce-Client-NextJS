@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import { useState ,useEffect} from 'react'
+import { GET } from "../../../utils/http";
 
 type Props = {}
 
@@ -11,12 +12,11 @@ const [products,setProducts]=useState<any[]>([]);
 useEffect(() => {
   async function fetchProducts() {
     try {
-      const res = await fetch('https://dummyjson.com/products');
-      const data = await res.json();
-      console.log('data',data)
-      setProducts(data.products);
+      const response = await GET("https://dummyjson.com/products");
+      console.log('response',response)
+      setProducts(response.data.products);
     } catch (error) {
-      console.error('Error fetching products:', error);
+      console.error("Error fetching products:", error);
     }
   }
 
