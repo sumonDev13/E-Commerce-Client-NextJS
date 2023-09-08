@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, ChangeEvent, FormEvent } from 'react';
+import { POST } from '@/utils/http';
 
 interface ProductData {
   title: string;
@@ -26,33 +27,28 @@ function AddProducts() {
     });
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    // Assuming you want to make a POST request here
-    fetch('https://fakestoreapi.com/products', {
-      method: 'POST',
-      body: JSON.stringify(productData),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((res) => res.json())
-      .then((json) => console.log(json));
-    
-    alert('Product added');
-    setProductData({
-      title: '',
-      price: 0,
-      description: '',
-      image: '',
-      category: '',
-    });
-    console.log('list', productData);
+
+    try {
+      const response = await POST('https://fakestoreapi.com/products', productData);
+      console.log('Response:', response);
+      alert('Product added');
+      setProductData({
+        title: '',
+        price: 0,
+        description: '',
+        image: '',
+        category: '',
+      });
+    } catch (error) {
+      console.error('Error adding product:', error);
+    }
   };
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-semibold mb-4">Want to add a product</h1>
+      <h1 className="text-2xl font-semibold mb-4">Want to add product?</h1>
       <form onSubmit={handleSubmit} className="max-w-sm">
         <div className="mb-4">
           <label htmlFor="title" className="block text-gray-700 text-sm font-bold mb-2">
