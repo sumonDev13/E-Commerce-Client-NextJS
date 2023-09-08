@@ -1,8 +1,16 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
+
+interface ProductData {
+  title: string;
+  price: number;
+  description: string;
+  image: string;
+  category: string;
+}
 
 function AddProducts() {
-  const [productData, setProductData] = useState({
+  const [productData, setProductData] = useState<ProductData>({
     title: '',
     price: 0,
     description: '',
@@ -10,7 +18,7 @@ function AddProducts() {
     category: '',
   });
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setProductData({
       ...productData,
@@ -18,7 +26,7 @@ function AddProducts() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     // Assuming you want to make a POST request here
     fetch('https://fakestoreapi.com/products', {
@@ -30,9 +38,16 @@ function AddProducts() {
     })
       .then((res) => res.json())
       .then((json) => console.log(json));
-      alert('product added')
-      setProductData(productData)
-      console.log('list',productData)
+    
+    alert('Product added');
+    setProductData({
+      title: '',
+      price: 0,
+      description: '',
+      image: '',
+      category: '',
+    });
+    console.log('list', productData);
   };
 
   return (
@@ -106,7 +121,6 @@ function AddProducts() {
         <button
           type="submit"
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          onClick={handleSubmit}
         >
           Add Product
         </button>
