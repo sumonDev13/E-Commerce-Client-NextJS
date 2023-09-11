@@ -21,7 +21,7 @@ export default function Home() {
           <div>
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
               <a href="#">
-                <h2 className="text-2xl text-white font-bold">NEXT JS</h2>
+                <h2 className="text-2xl text-white font-bold">E-Shopping</h2>
               </a>
               <div className="md:hidden">
                 <button
@@ -85,7 +85,7 @@ export default function Home() {
                 </li>
                 <li className="text-white">
                   <Link href="/contact">
-                   About Me
+                   profile
                   </Link>
                 </li>
               </ul>
