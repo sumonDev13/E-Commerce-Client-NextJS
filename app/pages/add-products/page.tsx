@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { POST } from '@/utils/http';
+import toast, { Toaster } from 'react-hot-toast';
 
 interface ProductData {
   title: string;

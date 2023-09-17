@@ -9,7 +9,7 @@ export default function Home() {
         </h1>
         <p className="mt-3 max-w-md mx-auto text-center text-xl leading-6 text-gray-500">
           not a member? Please
-          <Link href="/login">Signup</Link>
+          <Link href="/pages/signup">Signup</Link>
         </p>
       </div>
     </>
